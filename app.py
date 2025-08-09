@@ -1,0 +1,17 @@
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+# 사용자 데이터
+users = [
+    {"username": "God", "name": "이상혁"},
+    {"username": "singer", "name": "송하영"},
+    {"username": "soccer_player", "name": "손흥민"}
+]
+
+@app.route('/')
+def index():
+    return render_template('index.html', users=users)
+
+if __name__ == '__main__':
+    app.run(debug=True)
